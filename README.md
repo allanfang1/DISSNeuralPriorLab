@@ -1,4 +1,4 @@
-# Deep Neural Prior TP for Image Machine Learning Class of DISS program
+# DeepNeuralPrior TP for UCBL DISS ImageMachineLearning Class
 
 Project demonstrating Deep Image Prior variants (Gaussian denoising, inpainting, noise reconstruction) implemented with a tiny U-Net.
 
