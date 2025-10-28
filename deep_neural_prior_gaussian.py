@@ -11,7 +11,7 @@ from matplotlib import pyplot as plt
 class MyUNet(nn.Module):
     def __init__(self):
         super(MyUNet, self).__init__()
-        self.conv1= nn.Conv2d(16, 32, 4, 2, 1)
+        self.conv1= nn.Conv2d(3, 32, 4, 2, 1)
         self.conv2 = nn.Conv2d(32, 64, 4, 2, 1)
         self.conv3 = nn.Conv2d(64, 128, 4, 2, 1)
         self.conv4 = nn.Conv2d(128, 256, 4, 2, 1)
@@ -61,10 +61,7 @@ noisy_input = target + torch.randn_like(target) * 0.1
 noisy_input = torch.clamp(noisy_input, 0, 1)
 plt.imsave('gaussian.jpg', noisy_input[0].cpu().detach().permute(1,2,0).numpy())
 
-
-h = target.size()[2]
-w = target.size()[3]
-z = torch.rand(1,16, h, w).to(device)
+z = noisy_input.to(device)
 
 
 #Loss and optimizer
